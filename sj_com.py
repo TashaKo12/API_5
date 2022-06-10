@@ -1,6 +1,9 @@
-import requests
-from collections import defaultdict
 from itertools import count
+from collections import defaultdict
+
+import requests
+
+
 
 
 def predict_rub_salary(salary_from=None, salary_to=None):
