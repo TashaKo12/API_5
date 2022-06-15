@@ -28,7 +28,7 @@ def get_vacancies_hh(language="Python", page=0):
     return response.json()
 
 
-def static_hh_ru(language="Python"):
+def found_static_hh_ru(language="Python"):
     average_salaries = []
     count_used = 0
     for page in count(0, 1):
@@ -54,18 +54,19 @@ def static_hh_ru(language="Python"):
     else:
         average_salary = "-"
 
-    found_hh = {
+    found_information_hh_ru = {
         "vacancies_found": vacancy_count,
         "vacancies_processed": count_used,
         "average_salary": average_salary
     }
 
-    return found_hh
+    return found_information_hh_ru
+
 
 
 def get_statistics_of_languages_hh(languages):
     statistics = defaultdict()
     for language in languages:
-        statistics[language] = static_hh_ru(language)
+        statistics[language] = found_static_hh_ru(language)
     return statistics
 
