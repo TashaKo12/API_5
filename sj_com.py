@@ -4,8 +4,6 @@ from collections import defaultdict
 import requests
 
 
-
-
 def predict_rub_salary(salary_from=None, salary_to=None):
     if salary_from and salary_to:
         expected_salary = int(salary_to + salary_from) / 2
@@ -42,7 +40,7 @@ def get_language_statistics_sj(language, superjob_key):
         response = get_vacancies_sj(superjob_key, language, page=page)
 
         for vacancy in response["objects"]:
-            if not vacancy["payment_from"] or vacancy["payment_to"]:
+            if not (vacancy["payment_from"] or vacancy["payment_to"]):
                 continue
             if not vacancy["currency"] == "rub":
                 continue
@@ -74,6 +72,5 @@ def get_statistics_of_languages_sj(key, languages):
     for language in languages:
         statistics[language] = get_language_statistics_sj(language, key)
     return statistics
-
 
 
