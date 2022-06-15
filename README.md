@@ -30,9 +30,7 @@
 Пример содержания файла `.env`:
 
 ```python
-
-SJ_KEY = "SJ_KEY"
-
+SJ_KEY="SJ_KEY"
 ```
 
 Получить токен `SJ_KEY` можно на сайте [API SuperJob](https://api.superjob.ru/). 
