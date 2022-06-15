@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from hh_ru import get_statistics_of_languages_hh
 from sj_com import get_statistics_of_languages_sj
 
+
 HH_TITLE = "HeadHunter Moscow"
 SJ_TITLE = "SuperJob Moscow"
 

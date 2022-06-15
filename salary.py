@@ -1,3 +1,5 @@
+
+
 def predict_rub_salary(salary_from=None, salary_to=None):
     if salary_from and salary_to:
         expected_salary = int(salary_to + salary_from) / 2
