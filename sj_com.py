@@ -26,7 +26,6 @@ def get_vacancies_sj(key, language="Python", page=0):
 
 
 def get_language_statistics_sj(language, superjob_key):
-    count_used = 0
     average_salaries = []
     for page in count(0, 1):
         response = get_vacancies_sj(superjob_key, language, page=page)
@@ -40,7 +39,6 @@ def get_language_statistics_sj(language, superjob_key):
                 vacancy["payment_from"],
                 vacancy["payment_to"]
             ))
-            count_used += 1
 
         if not response["more"]:
             break
@@ -53,7 +51,7 @@ def get_language_statistics_sj(language, superjob_key):
 
     vacancies_for_language = {
         "vacancies_found": vacancy_count,
-        "vacancies_processed": count_used,
+        "vacancies_processed": len(average_salaries),
         "average_salary": average_salary
     }
     return vacancies_for_language

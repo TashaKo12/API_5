@@ -22,7 +22,6 @@ def get_vacancies_hh(language="Python", page=0):
 
 def found_static_hh_ru(language="Python"):
     average_salaries = []
-    count_used = 0
     for page in count(0, 1):
         response = get_vacancies_hh(language, page=page)
 
@@ -38,7 +37,6 @@ def found_static_hh_ru(language="Python"):
                 vacancy["salary"]["from"],
                 vacancy["salary"]["to"]
             ))
-            count_used += 1
     vacancy_count = response["found"]
 
     if len(average_salaries):
@@ -48,7 +46,7 @@ def found_static_hh_ru(language="Python"):
 
     found_information_hh_ru = {
         "vacancies_found": vacancy_count,
-        "vacancies_processed": count_used,
+        "vacancies_processed": len(average_salaries),
         "average_salary": average_salary
     }
 
