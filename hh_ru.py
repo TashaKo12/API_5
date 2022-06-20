@@ -42,7 +42,7 @@ def found_static_hh_ru(language="Python"):
     if len(average_salaries):
         average_salary = int(sum(average_salaries) / len(average_salaries))
     else:
-        average_salary = "-"
+        average_salary = None
 
     found_information_hh_ru = {
         "vacancies_found": vacancy_count,

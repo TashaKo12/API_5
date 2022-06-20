@@ -47,7 +47,7 @@ def get_language_sj_statistics(language, superjob_key):
     if len(average_salaries):
         average_salary = int(sum(average_salaries) / len(average_salaries))
     else:
-        average_salary = "-"
+        average_salary = None
 
     vacancies_for_language = {
         "vacancies_found": vacancy_count,
