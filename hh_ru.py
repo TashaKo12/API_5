@@ -6,12 +6,12 @@ import requests
 from salary import predict_rub_salary
 
 
-def get_hh_vacancies(language="Python", page=0):
+def get_hh_vacancies(language="Python", page=0, specialization="1.221", area = "1", period = 30):
     link_hh = "https://api.hh.ru/vacancies/"
     params = {
-        "specialization": "1.221",
-        "area": "1",
-        "period": 30,
+        "specialization": specialization,
+        "area": area,
+        "period": period,
         "text": language,
         "page": page
     }
