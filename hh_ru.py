@@ -6,7 +6,7 @@ import requests
 from salary import predict_rub_salary
 
 
-def get_vacancies_hh(language="Python", page=0):
+def get_hh_vacancies(language="Python", page=0):
     link_hh = "https://api.hh.ru/vacancies/"
     params = {
         "specialization": "1.221",
@@ -23,7 +23,7 @@ def get_vacancies_hh(language="Python", page=0):
 def found_static_hh_ru(language="Python"):
     average_salaries = []
     for page in count(0, 1):
-        response = get_vacancies_hh(language, page=page)
+        response = get_hh_vacancies(language, page=page)
 
         if page >= response["pages"] - 1:
             break
@@ -54,7 +54,7 @@ def found_static_hh_ru(language="Python"):
 
 
 
-def get_statistics_of_languages_hh(languages):
+def get_statistics_of_hh_languages(languages):
     statistics = defaultdict()
     for language in languages:
         statistics[language] = found_static_hh_ru(language)

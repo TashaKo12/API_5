@@ -6,7 +6,7 @@ import requests
 from salary import predict_rub_salary
 
 
-def get_vacancies_sj(key, language="Python", page=0):
+def get_sj_vacancies(key, language="Python", page=0):
     url = "https://api.superjob.ru/2.0/vacancies/"
     headers = {
         "X-Api-App-Id": key
@@ -25,10 +25,10 @@ def get_vacancies_sj(key, language="Python", page=0):
     return response.json()
 
 
-def get_language_statistics_sj(language, superjob_key):
+def get_language_sj_statistics(language, superjob_key):
     average_salaries = []
     for page in count(0, 1):
-        response = get_vacancies_sj(superjob_key, language, page=page)
+        response = get_sj_vacancies(superjob_key, language, page=page)
 
         for vacancy in response["objects"]:
             if not (vacancy["payment_from"] or vacancy["payment_to"]):
@@ -57,10 +57,10 @@ def get_language_statistics_sj(language, superjob_key):
     return vacancies_for_language
 
 
-def get_statistics_of_languages_sj(key, languages):
+def get_statistics_of_sj_languages(key, languages):
     statistics = defaultdict()
     for language in languages:
-        statistics[language] = get_language_statistics_sj(language, key)
+        statistics[language] = get_language_sj_statistics(language, key)
     return statistics
 
 

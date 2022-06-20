@@ -3,8 +3,8 @@ import os
 from terminaltables import AsciiTable
 from dotenv import load_dotenv
 
-from hh_ru import get_statistics_of_languages_hh
-from sj_com import get_statistics_of_languages_sj
+from hh_ru import get_statistics_of_hh_languages
+from sj_com import get_statistics_of_sj_languages
 
 
 HH_TITLE = "HeadHunter Moscow"
@@ -50,14 +50,14 @@ def main():
 
     hh_table = create_table(
         HH_TITLE,
-        get_statistics_of_languages_hh(
+        get_statistics_of_hh_languages(
             languages
         )
     )
 
     sj_table = create_table(
         SJ_TITLE,
-        get_statistics_of_languages_sj(
+        get_statistics_of_sj_languages(
             superjob_key,
             languages
         )
